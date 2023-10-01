@@ -1,4 +1,4 @@
-package com.example.SpringBoot.controller;
+package com.example.SpringBoot.student;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
