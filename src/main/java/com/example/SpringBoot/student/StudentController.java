@@ -1,7 +1,7 @@
 package com.example.SpringBoot.student;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,8 +9,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/students")
 public class StudentController {
-    @Autowired
-    private StudentService studentService;
+
+    private final StudentService studentService;
+
+    public StudentController(@Qualifier("db") StudentService studentService) {
+        this.studentService = studentService;
+    }
 
     @PostMapping
     public Student save(@RequestBody Student student){
